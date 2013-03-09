@@ -1,0 +1,373 @@
+<!doctype html>
+<!-- Conditional comment for mobile ie7 blogs.msdn.com/b/iemobile/ -->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" lang="en"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <title> Bolt jQuery Mobile Website</title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimization h5bp.com/ad -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
+  <!-- For iPhone 4 with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
+  <!-- For first-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/m/apple-touch-icon.png">
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="img/l/apple-touch-icon-precomposed.png">
+  <!-- For nokia devices: -->
+  <link rel="shortcut icon" href="img/l/apple-touch-icon.png">
+    
+  
+
+
+  <!-- iOS web app, delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <!-- <script>(function(){var a;if(navigator.platform==="iPad"){a=window.orientation!==90||window.orientation===-90?"img/startup-tablet-landscape.png":"img/startup-tablet-portrait.png"}else{a=window.devicePixelRatio===2?"img/startup-retina.png":"img/startup.png"}document.write('<link rel="apple-touch-startup-image" href="'+a+'"/>')})()</script> -->
+  
+  <!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
+  <!-- <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script> -->
+  
+  <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+  <!--<meta http-equiv="cleartype" content="on">-->
+
+  <!-- more tags for your 'head' to consider h5bp.com/d/head-Tips -->
+  
+  
+  <!-- fonts -->
+  <!--<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>-->
+
+  
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/flexslider.css">
+    
+  <link rel="stylesheet" href="css/photoswipe/photoswipe.css">
+  <link rel="stylesheet" href="css/jquery.mobile-1.1.1.css">
+  
+  <!--<link rel="stylesheet" href="css/jquery-ui-1.8.16.custom.css">-->
+  
+  
+  <link rel="stylesheet" href="css/themes/theme-black.css">
+  
+  
+  
+  
+  <!-- Main Stylesheet -->
+  <!--<link rel="stylesheet" href="css/style.css">-->
+  
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <style>
+  .inner {
+    padding: 10px;
+    box-shadow: inset 0px 0px 5px gray;
+    background: #ffffaf;
+}
+.ui-dialog-background {
+  opacity: 0.5;
+  display: block !important;
+  -webkit-transition: opacity 0.5s ease-in;
+}
+ 
+.ui-dialog-background.pop.in {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in;
+}
+ 
+.ui-dialog {
+  min-height: 100% !important;
+  background: transparent !important;
+}
+  </style>
+</head>
+<body>
+<div id="splash" class="splash"> 
+  <img id="splashBg" src="img/splash.jpg" alt="Splash Image">
+  <img id="splashTitle" src="img/splashTitle.png" alt="Splash Title">
+</div>
+  <div id="container"  data-role="page" >
+    <header>
+      <div class="upperMenu">
+        <div class="pagesMenu">
+          <ul>
+              <li>
+                  <form action="" id="login_form">
+                    <div data-role="fieldcontain">
+                        <h1>
+                            Krooe
+                        </h1>
+                    </div>
+                    <div data-role="fieldcontain">
+                      <label for="username">Email</label> <input type="email" name="username" id="username" placeholder="name@email.com" required="required"/>
+                    </div>
+                    <div data-role="fieldcontain">
+                      <label for="password">Password</label> <input type="password" name="password" id="password" required="required" placeholder="password" />
+                    </div>
+                    <div data-role="fieldcontain" style="display:none;"id="message">
+                      <div class="inner"></div>
+                    </div>
+                    <input type="submit" data-role="button" data-theme="a" id="login" value="login">
+                    <input type="checkbox" name="ck_remember" id="ck_remember" class="custom" data-mini="true" />
+                    <label for="ck_remember">Remember Info?</label>
+                    
+                </form>
+              </li>
+          </ul>
+      </div>
+      </div>
+
+      <div id="header">
+        <a href="#" class="logoutButton" id="logoutButton" style="display:none;"></a>
+        <a href="#" class="menuButton"></a>
+        <h1> Krooe</h1>
+        <h2 id="username_header"></h2>
+        
+        <!--<a href="portfolio.html" class="nextButton">&raquo;</a>-->
+        
+        <!--
+        <a href="index.html">
+          <div class="iButtonBody">
+            <div>
+              <span></span>
+            </div>
+            <p>Back</p>
+          </div>
+        </a>
+        -->
+      </div>
+    </header>
+    <!--
+    <div id="main" role="main">
+    </div>
+    -->
+    
+    <div id="pageHome" class="page">
+      <div class="separator">
+      <div class="pagesMenu">
+        <a href="#"  data-url="timesheet.html" id="linkTimesheet" class="pageLink pageLink-1-1">
+          <div class="iconBox">
+            <img src="img/home/timesheet_icon.png" alt="Timesheet">
+          </div>
+          <div class="titleBox">
+            Timesheet
+          </div>
+        </a>
+        
+        <a href="#" id="linkTasks"  data-url="tasks.html" class="pageLink pageLink-1-1" >
+          <div class="iconBox">
+            <img src="img/home/task_icon.png" alt="Tasks">
+          </div>
+          <div class="titleBox">
+            Tasks
+          </div>
+        </a>
+        
+        <a href="#" id="linkCrew" data-url="crew.html" class="pageLink pageLink-1-1 ">
+          <div class="iconBox">
+            <img src="img/home/crew_icon.png" alt="Crew">
+          </div>
+          <div class="titleBox">
+            Crew
+          </div>
+        </a>
+        <div class="clearfix"></div>    
+        
+    </div>
+      
+    </div>
+    <div class="clearfix"></div>
+  </div> <!--! end of #container -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+  <!--<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>-->
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.2.min.js"><\/script>')</script>
+
+  
+  <!--validation for older browsers (if) -->
+  
+  
+  <script src="js/iscroll.js"></script>
+  <script src="js/jquery.flexslider-min.js"></script>
+  <script src="js/photoswipe/klass.min.js"></script>
+  <script src="js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
+  <script src="cordova.js"></script>
+  <script>
+      $(document).bind("mobileinit", function(){
+       $.mobile.defaultPageTransition = 'none';
+          //$.mobile.defaultPageTransition = 'slide';
+          //$.mobile.defaultPageTransition = 'fade';
+          //$.mobile.defaultPageTransition = 'flow';
+          //$.mobile.defaultPageTransition = 'flip';
+          //$.mobile.defaultPageTransition = 'pop';
+          
+          $.mobile.ignoreContentEnabled = true;
+          document.addEventListener("deviceready", onDeviceReady, false);
+          function onDeviceReady() {
+              // Register the event listener
+              document.addEventListener("backbutton", onBackKeyDown, false);
+              document.addEventListener("resume", onResume, false);
+              remember_me();
+ 
+          }
+          function onResume(){
+              remember_me();
+          }
+          function remember_me(){
+            if(localStorage.checked!=undefined){
+              $("input[name='ck_remember']").attr('checked', true);
+              if(localStorage.remembred!=undefined){
+                  $("#logoutButton").show();
+                  user =localStorage.remembred;
+                  localStorage.user=localStorage.remembred;
+                  user= JSON.parse(user);
+                  AccountId=user.AccountId;
+                  $("#username_header").html(user.first_name+" "+user.last_name);
+                  //active the links 
+                  $(".menuButton").hide();
+                  activate_links();
+              }else{
+                  $(".menuButton").show();
+                $(".menuButton").addClass('open');
+                                //we give a delay of 300 because our CSS3 transitions are timed at 0.3s for the menu button (the up arrow) to rotate.
+                                setTimeout(function(){
+                                     $('.upperMenu').addClass('opened');
+                                     $('.upperMenu .pagesMenu').animate({
+                                          opacity: 1
+                                     });
+                                }, 300);
+
+              }
+            }else{
+                $("input[name=ck_remember]").attr('checked', false);
+                $(".menuButton").show();
+                $(".menuButton").addClass('open');
+                                //we give a delay of 300 because our CSS3 transitions are timed at 0.3s for the menu button (the up arrow) to rotate.
+                                setTimeout(function(){
+                                     $('.upperMenu').addClass('opened');
+                                     $('.upperMenu .pagesMenu').animate({
+                                          opacity: 1
+                                     });
+                                }, 300);
+            } 
+          }
+          function onBackKeyDown() {
+            
+              history.back();
+          
+          }
+          //enable this if you want your website to run without jQuery Mobile Navigation
+          $.mobile.ajaxEnabled = false;
+          
+          $("#ck_remember").live("change",function(){
+            if($("#ck_remember").is(":checked")){
+              localStorage.checked='true';
+            }else{
+              localStorage.removeItem('remembred');
+              localStorage.removeItem('user');
+              localStorage.removeItem('checked');
+            }
+          });
+          function activate_links(){
+            $(".pageLink").each(function(){
+                  $(this).attr("href",$(this).attr("data-url"));
+                });  
+          }
+          
+          $("#logoutButton").live("click",function(){
+            $.mobile.changePage("logout_popup.html", { transition: "none"} );
+          });
+          $("#logout_popup").live("pageshow",function(){
+          $("#logout_popup .sure-do").live("click",function() {
+            $(".menuButton").show();
+            //disable the links
+            $(".pageLink").each(function(){
+                  $(this).attr("href","#");
+            });
+             localStorage.removeItem('user'); 
+             $("#logoutButton").hide();
+             $("#username_header").html("");
+            });
+          });
+
+          $("#login_form").submit(function(e){
+            e.preventDefault();
+            var username =$("#username").val();
+            var password =$("#password").val();
+            if(username!="" && password!=""){
+                $.mobile.showPageLoadingMsg("a","Authentication...",false);
+                xmlhttp= new XMLHttpRequest();
+                xmlhttp.open("POST","http://krooe.com/php/testlogin.php",true);
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xmlhttp.send("username="+username+"&password="+password);
+                xmlhttp.onload=function(){
+                $.mobile.hidePageLoadingMsg(); 
+                json = JSON.parse(xmlhttp.responseText);
+                if(json.status==true){
+                    activate_links();
+                    var user={
+                    'first_name':json.fname,
+                    'last_name':json.lname,
+                    'email':json.email,
+                    'AccountEmployeeId':json.AccountEmployeeId,
+                    'AccountId':json.AccountId
+                };
+                localStorage.user=JSON.stringify(user);
+                if(localStorage.checked!=undefined){
+                  localStorage.remembred=localStorage.user;
+                }
+                var AccountId;
+                user =localStorage.user;
+                user= JSON.parse(user);
+                AccountId=user.AccountId;
+                $("#username_header").html(user.first_name+" "+user.last_name);
+                $("#logoutButton").show();
+                $(".menuButton").click();
+                $(".menuButton").hide();
+                }else{
+                  $(".menuButton").show();
+                  $('#message .inner').html("Login or password are not correct.");
+                  $("#message").show();
+                }
+            };
+         } 
+        });
+      $('div[data-role="dialog"]').live('pagebeforeshow', function(e, ui) {
+        ui.prevPage.addClass("ui-dialog-background ");
+        });
+        
+          $('div[data-role="dialog"]').live('pagehide', function(e, ui) {
+        $(".ui-dialog-background ").removeClass("ui-dialog-background ");
+        });
+    });
+  </script>
+  <!--<script src="js/jquery.mobile-1.1.1.min.js"></script>-->
+  <script src="js/jquery.mobile-1.2.0.min.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  
+
+  <!--
+  <script src="js/hammer/hammer.js"></script>
+  <script src="js/hammer/jquery.hammer.js"></script>
+  -->
+  
+  <script src="js/helper.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts-->
+
+  <!-- Debugger - remove for production -->
+  <!-- <script src="https://getfirebug.com/firebug-lite.js"></script> -->
+
+</body>
+</html>
